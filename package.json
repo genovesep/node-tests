@@ -5,12 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha **/*.test.js",
-    "test-watch": "nodemon --exec \"npm test\""
+    "utils": "mocha **/utils/*.test.js",
+    "server": "mocha **/server/server.test.js -e js",
+    "test-watch": "nodemon --exec \"npm run utils\"",
+    "test-server": "nodemon --exec \"npm run server\"",
+    "test-all": "nodemon --exec \"npm run test\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "expect": "^1.20.2",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
   }
 }

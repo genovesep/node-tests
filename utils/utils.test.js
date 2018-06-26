@@ -2,43 +2,54 @@
 const utils = require('./utils');
 const expect = require('expect');
 
-it('should add to numbers', () => {
-	var result = utils.add(33,11);
+describe('Utils', () => {
 
-	expect(result).toBe(44);
-});
+	describe('#add', () => {
+		it('should add to numbers', () => {
+			var result = utils.add(33,11);
 
-it('should add to numebers - false', () => {
-	var result = utils.add(33,11+1);
+			expect(result).toBe(44);
+		});
 
-	expect(result).toNotBe(44);
-});
+		it('should add to numebers - false', () => {
+			var result = utils.add(33,11+1);
 
-it('should async add two numbers', (done) => {
-	utils.asyncAdd(4, 3, (sum) => {
-		expect(sum).toBe(7).toBeA('number');
-		done();
+			expect(result).toNotBe(44);
+		});
+	});
+
+	describe('#square', () => {
+		it('should square a number', () => {
+			var res = utils.square(2);
+
+			expect(res).toBe(4);
+		});
+
+		it('should square a number - false', () => {
+			var res = utils.square(2+1);
+
+			expect(res).toNotBe(4);
+		});
+	});
+
+	describe('#async', () => {
+		it('should async add two numbers', (done) => {
+			utils.asyncAdd(4, 3, (sum) => {
+				expect(sum).toBe(7).toBeA('number');
+				done();
+			});
+		});
+
+		it('should async square', (done) => {
+			utils.asyncSquare(4, (square) => {
+				expect(square).toBe(16).toBeA('number');
+				done();
+			});
+		});
 	});
 });
 
-it('should square a number', () => {
-	var res = utils.square(2);
 
-	expect(res).toBe(4);
-});
-
-it('should square a number - false', () => {
-	var res = utils.square(2+1);
-
-	expect(res).toNotBe(4);
-});
-
-it('should async square', (done) => {
-	utils.asyncSquare(4, (square) => {
-		expect(square).toBe(16).toBeA('number');
-		done();
-	});
-});
 
 // should verify first and last names are set
 // assert it includes first name and last name with proper values
