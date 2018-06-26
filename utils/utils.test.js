@@ -53,13 +53,15 @@ describe('Utils', () => {
 
 // should verify first and last names are set
 // assert it includes first name and last name with proper values
-it('should split full name', () => {
-	var user = {location: 'Sao Paulo', age: 26};
-	var testingUser = utils.setName(user, 'Piero Genovese');
+describe('Playground', () => {
+	it('should split full name', () => {
+		var user = {location: 'Sao Paulo', age: 26};
+		var testingUser = utils.setName(user, 'Piero Genovese');
 
-	expect(testingUser).toInclude({
-		firstName: 'Piero',
-		lastName: 'Genovese'
+		expect(testingUser).toInclude({
+			firstName: 'Piero',
+			lastName: 'Genovese'
+		});
 	});
 });
 

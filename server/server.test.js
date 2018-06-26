@@ -4,7 +4,7 @@ const expect = require('expect');
 var app = require('./server').app;
 
 describe('Server', () => {
-  describe('#/', () => {
+  describe('GET /', () => {
     it('should return hello browser response', (done) => {
       request(app)
         .get('/')
@@ -18,7 +18,7 @@ describe('Server', () => {
     });
   });
 
-  describe('#users', () => {
+  describe('GET /users', () => {
     it('should return my user object', (done) => {
       request(app)
         .get('/users')
